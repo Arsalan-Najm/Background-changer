@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Background changer</title>
+	<script src="jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<div class="changer-btn"><span class="fa fa-cog"></span></div>
+	<div class="container">
+		<h2>Enter a color name or color code</h2>
+		<div class="box">
+			<div class="textb">
+			<input type="text" id="txt" placeholder="#000000">
+			<div class="back"></div>
+		</div>
+		<button class="apply-btn">Apply Color</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(".changer-btn").click(function(){
+			$(".container").toggleClass("container-show");
+		});
+		$("#txt").keyup(function(){
+			$(".back").css("background",$("#txt").val());
+		});
+		$(".apply-btn").click(function(){
+			$("body").css("background",$("#txt").val());
+			$(".container").toggleClass("container-show");
+			if($("#txt").val() === "#fff" || $("#txt").val() === "white") {
+				$(".changer-btn").addClass("black");
+			}
+			else {
+				$(".changer-btn").removeClass("black");
+			}
+		});
+	</script>
+</body>
+</html>
